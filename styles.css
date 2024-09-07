@@ -1,0 +1,98 @@
+/* Page background needs a powder blue color. */
+/* Targeting color within body will color the text, not background. */
+/* Correct selector is 'background-color'. */
+
+
+body{
+    background-color: hsl(212, 45%, 89%);
+    margin: 0;
+    text-align: center;
+}
+
+/* QR code card is centered in design file. */
+/* Grouped together are the QR image, h2 & p. */
+/* Wrap them in a div container. */
+/* These elements are placed on white vertical rectangle background */
+/* The previous div will be nested into another div here. The parent div. */
+/* Design file has dimensions w: 320px & h: 499px. */
+/* Dotted border added for parent wrapper helps to see where edges are. */
+/* Parent wrapper still stretches the width of window with 0 margin & padding. */
+/* Updating left & right margin to auto, centered the parent wrapper. */
+/* The card is stuck to top of page. */
+/* Updating top & bottom to 100px vertically centered it. */
+/* There has to be a flex property to use in place of manual margin adjustments. */
+
+
+.qr-card-container{
+    background-color: white;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    flex-direction: column; /* Keeps the QR code, heading, and paragraph stacked vertically */
+    margin: 100px auto;
+    padding: 0;
+    border-style: none; /* Removed dotted style for final look. */
+    border-radius: 5%;
+    width: 320px;
+    height: 499px;
+}
+
+/* Items in content-wrapper are not centered. */
+/* Centering properties in card-container just centers the wrapper within it. */
+/* I don't believe there's inheritence that extends to the items in the content-wrapper. */
+/* I was wrong, there is inheritance. The issue was with extra padding needed on h2 & p. */
+
+
+.qr-content-wrapper{
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 40px;
+}
+
+/* Targeting dimensions in content wrapper will effect everthing in div & image won't render correctly. */
+/* Correct selector for height & width so only image is effected is 'img'. */
+
+
+img{
+    border-radius: 5%;
+    width: 288px;
+    height: 288px;
+}
+
+/* h2 & p nested into a separate div within content-wrapper. */
+/* Remove default margin on h2 & p or QR gets pushed up. */
+/* Setting margin 0 on content-wrapper fails because margin is outside & padding is within. */
+/* Correct selector here is new div 'qr-message'. */
+
+h2{
+    font-family: "Outfit", sans-serif;
+    font-size: 22px;
+    color: hsl(218, 44%, 22%);
+    padding-top: 24px;
+    padding-bottom: 16px;
+}
+
+p{
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    color: hsl(216, 15%, 48%);
+}
+
+/* The text still looks off. My text is aligned to left & design has it centered. */
+/* Missed adding text-align: center into body! */
+
+
+.qr-message h2,p{
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.attribution {
+    font-size: 11px; text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
